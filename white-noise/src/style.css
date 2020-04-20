@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.time, .sounds, .icon-container{
+    height: 85%;
+    flex: 1;
+
+}
+
+.time{
+    background: rgb(144, 144, 247);
+
+}
+.sounds{
+    background: rgb(30, 73, 77);
+}
+.icon-container{
+    background: rgb(146, 192, 146);
+}
+
