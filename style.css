@@ -12,17 +12,47 @@
 .time, .sounds, .icon-container{
     height: 85%;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 
-}
-
-.time{
-    background: rgb(144, 144, 247);
-
-}
-.sounds{
-    background: rgb(30, 73, 77);
 }
 .icon-container{
-    background: rgb(146, 192, 146);
+    position: relative;
+}
+.icon-container svg{
+    position: absolute;
+    height: 50%;
+    pointer-events: none;
 }
 
+.clock{
+    position: absolute;
+    bottom:10%;
+    color: white;
+    font-size: 40px;
+
+
+
+}
+video{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    left:0%;
+    z-index: -2;
+}
+.sounds button, .time button{
+    color: white;
+    height: 15%;
+    width: 35%;
+    background: none;
+    border: 2px solid white;
+    font-size: 25px;
+}
+
+.sounds button{
+    border: none;
+    
+}
