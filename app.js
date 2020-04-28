@@ -1,34 +1,71 @@
-const app =() =>{
-    const play = document.querySelector('.play');
-    const noise = document.querySelector('.noise');
-    const outline = document.querySelector('.moving-outline circle');
-    const video = document.querySelector('.background-container video');
+  
+const noise = document.querySelector(".noise");
+const play = document.querySelector(".play");
+const outline = document.querySelector(".moving-outline circle");
+const video = document.querySelector(".background-container video");
 
-    const sounds = document.querySelectorAll('.sounds button');
-    const time = document.querySelector('.clock');
 
-//length of outline
-    const Length =outline.getTotalLength();
-//animate the time button 
-    let faketime = 600;
-    outline.style.strokeDasharray =Length;
-    //strokeDashoffset for the time the sound has been playing
-    outline.style.strokeDashoffset = Length;
+const sounds = document.querySelectorAll(".sounds button");
 
-   play.addEventListener('click', () =>{
-      noise.play();
-   });
-   const checkPlaybutton = noise =>{
-       if(noise.paused){
-           noise.play();
-           video.play();
-           play.src="./svg/pause.svg";
-       }else{
-           noise.pause();
-           video.pause();
-           play.src ='./svg/play.svg';
-       }
-   } 
+const clock = document.querySelector(".clock");
+const length = outline.getTotalLength();
 
+//The time set to one hour
+const time = document.querySelectorAll(".time button");
+let fakeTime = 3600;
+
+outline.style.strokeDashoffset = length;
+outline.style.strokeDasharray = length;
+clock.textContent = `${Math.floor(fakeTime / 60)}:${Math.floor(
+  fakeTime % 60
+)}`;
+
+sounds.forEach(sound => {
+  sound.addEventListener("click", function() {
+    noise.src = this.getAttribute("soundS");
+    video.src = this.getAttribute("videoS");
+    checkPlaying(noise);
+  });
+});
+
+play.addEventListener("click", function() {
+  checkPlaying(noise);
+});
+
+time.forEach(option => {
+  option.addEventListener("click", function() {
+    fakeTime = this.getAttribute("timeRange");
+    clock.textContent = `${Math.floor(fakeTime / 60)}:${Math.floor(
+      fakeTime % 60
+    )}`;
+  });
+});
+
+const checkPlaying = noise => {
+  if (noise.paused) {
+    noise.play();
+    video.play();
+    play.src = "./svg/pause.svg";
+  } else {
+    noise.pause();
+    video.pause();
+    play.src = "./svg/play.svg";
+  }
 };
-app();
+
+noise.ontimeupdate = function() {
+  let currentTime = noise.currentTime;
+  let elapsed = fakeTime - currentTime;
+  let seconds = Math.floor(elapsed % 60);
+  let minutes = Math.floor(elapsed / 60);
+  clock.textContent = `${minutes}:${seconds}`;
+  let progress = length - (currentTime / fakeTime) * length;
+  outline.style.strokeDashoffset = progress;
+
+  if (currentTime >= fakeTime) {
+    noise.pause();
+    noise.currentTime = 0;
+    play.src = "./svg/play.svg";
+    video.pause();
+  }
+};

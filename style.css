@@ -1,58 +1,87 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.app{
-    height: 100vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-}
-.time, .sounds, .icon-container{
-    height: 85%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-.icon-container{
-    position: relative;
-}
-.icon-container svg{
-    position: absolute;
-    height: 50%;
-    pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.clock{
-    position: absolute;
-    bottom:10%;
-    color: white;
-    font-size: 40px;
-
-
-
-}
-video{
-    position: fixed;
-    width: 100%;
-    top: 0%;
-    left:0%;
-    z-index: -2;
-}
-.sounds button, .time button{
-    color: white;
-    height: 15%;
-    width: 35%;
-    background: none;
-    border: 2px solid white;
-    font-size: 25px;
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
-.sounds button{
-    border: none;
-    
+.time,
+.sounds {
+  height: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+.time button,
+.sounds button {
+  color: white;
+  width: 30%;
+  height: 10%;
+  background: none;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: all 0.5s ease;
+}
+
+.sounds button {
+  border: none;
+  height: 120px;
+  width: 120px;
+  padding: 30px;
+  border-radius: 50%;
+}
+
+.sounds button img {
+  height: 100%;
+}
+
+
+.mainPlay {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mainPlay svg {
+  position: absolute;
+  height: 50%;
+  pointer-events: none;
+}
+.mainPlay svg circle {
+  transition: all 0.2s ease-in-out;
+}
+.clock {
+  color: white;
+  position: absolute;
+  font-size: 50px;
+  bottom: 10%;
+}
+
+.play {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+video {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: -1;
 }
