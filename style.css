@@ -23,21 +23,21 @@
 }
 .time button,
 .sounds button {
-  color: white;
+  color: black;
   width: 30%;
-  height: 10%;
+  height: 100px;
   background: none;
   font-size: 20px;
   border-radius: 5px;
   cursor: pointer;
-  border: 2px solid white;
+  border: 2px solid black;
   transition: all 0.5s ease;
 }
 
 .sounds button {
   border: none;
-  height: 120px;
-  width: 120px;
+  height: 170px;
+  width: 200px;
   padding: 30px;
   border-radius: 50%;
 }
@@ -84,4 +84,13 @@ video {
   left: 0%;
   width: 100%;
   z-index: -1;
+}
+.time button:hover {
+  background: white;
+  color: black;
+}
+.sounds button:hover{
+  background: white;
+  color: black;
+
 }
