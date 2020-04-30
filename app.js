@@ -45,11 +45,11 @@ const checkPlaying = noise => {
   if (noise.paused) {
     noise.play();
     video.play();
-    play.src = "./svg/pause.svg";
+    play.src = "./loop/pause.svg";
   } else {
     noise.pause();
     video.pause();
-    play.src = "./svg/play.svg";
+    play.src = "./loop/play.svg";
   }
 };
 
@@ -65,7 +65,7 @@ noise.ontimeupdate = function() {
   if (currentTime >= fakeTime) {
     noise.pause();
     noise.currentTime = 0;
-    play.src = "./svg/play.svg";
+    play.src = "./loop/play.svg";
     video.pause();
   }
 };
