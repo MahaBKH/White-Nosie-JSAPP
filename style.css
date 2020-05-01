@@ -29,9 +29,8 @@
   background: none;
   font-size: 20px;
   border-radius: 5px;
-  cursor: pointer;
   border: 2px solid black;
-  transition: all 0.5s ease;
+
 }
 
 .sounds button {
@@ -39,7 +38,6 @@
   height: 170px;
   width: 200px;
   padding: 30px;
-  border-radius: 50%;
 }
 
 .sounds button img {
