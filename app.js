@@ -1,4 +1,3 @@
-  
 const noise = document.querySelector(".noise");
 const play = document.querySelector(".play");
 const outline = document.querySelector(".moving-outline circle");
